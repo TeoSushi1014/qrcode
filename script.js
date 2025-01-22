@@ -6,6 +6,7 @@ class QRCodeGenerator {
         this.downloadBtn = document.getElementById('download-btn');
         this.qrOutput = document.getElementById('qr-output');
         this.ctx = this.qrOutput.getContext('2d');
+        this.customFilename = document.getElementById('custom-filename');
 
         this.init();
     }
@@ -110,11 +111,31 @@ class QRCodeGenerator {
     }
 
     downloadQRCode() {
-        // Add download animation
         this.downloadBtn.classList.add('loading');
+        
+        // Get custom filename if provided
+        const customName = this.customFilename.value.trim();
+        const qrContent = this.qrText.value;
+        
+        let filename = 'qr_teosushi.png';
+        
+        if (customName) {
+            // Use custom filename if provided
+            const cleanCustomName = customName
+                .replace(/[^a-zA-Z0-9]/g, '_')
+                .substring(0, 30);
+            filename = `qr_${cleanCustomName}_teosushi.png`;
+        } else if (qrContent) {
+            // Use QR content as filename if no custom name
+            const cleanContent = qrContent
+                .replace(/[^a-zA-Z0-9]/g, '_')
+                .substring(0, 30);
+            filename = `qr_${cleanContent}_teosushi.png`;
+        }
+
         setTimeout(() => {
             const link = document.createElement('a');
-            link.download = 'qrcode.png';
+            link.download = filename;
             link.href = this.qrOutput.toDataURL();
             link.click();
             this.downloadBtn.classList.remove('loading');

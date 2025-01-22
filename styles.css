@@ -235,3 +235,24 @@ footer {
 .fa-facebook { color: #1877f2; }
 .fa-github { color: #333; }
 .fa-tiktok { color: #000; }
+
+/* New filename input field styles */
+.file-name-input {
+    margin-bottom: 20px;
+}
+
+.file-name-input input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    border: 2px solid rgba(0, 120, 212, 0.1);
+    background: rgba(255, 255, 255, 0.9);
+    transition: all 0.3s ease;
+    font-size: 16px;
+}
+
+.file-name-input input:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(0, 120, 212, 0.2);
+    outline: none;
+}
