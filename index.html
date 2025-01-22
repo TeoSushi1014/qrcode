@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Code Generator</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header class="glass-effect">
+            <div class="logo">QR</div>
+            <h1>QR Code Generator</h1>
+        </header>
+        
+        <main>
+            <div class="input-section glass-effect">
+                <textarea id="qr-text" placeholder="Enter text or URL for QR code..."></textarea>
+                <div class="image-upload">
+                    <label for="center-image">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M17 8l-5-5-5 5M12 3v12"/>
+                        </svg>
+                        <span>Drop your logo here or click to upload</span>
+                    </label>
+                    <input type="file" id="center-image" accept="image/*" hidden>
+                </div>
+                <button id="generate-btn" class="win11-btn">Generate QR Code</button>
+            </div>
+
+            <div class="output-section glass-effect">
+                <div class="qr-container">
+                    <canvas id="qr-output"></canvas>
+                </div>
+                <button id="download-btn" class="win11-btn">Download QR Code</button>
+            </div>
+        </main>
+
+        <footer class="glass-effect">
+            <p>&copy; 2024 QR Code Generator. All rights reserved.</p>
+            <div class="author-info">
+                <p>Author: Tèo Sushi</p>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/boboiboy.gala.7" target="_blank">
+                        <i class="fab fa-facebook"></i> Facebook
+                    </a>
+                    <a href="https://github.com/TeoSushi1014" target="_blank">
+                        <i class="fab fa-github"></i> Github
+                    </a>
+                    <a href="https://www.tiktok.com/@teosushi2207" target="_blank">
+                        <i class="fab fa-tiktok"></i> Tiktok
+                    </a>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
